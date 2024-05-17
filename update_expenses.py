@@ -3,7 +3,7 @@ import json
 import os
 
 from general.general_functions import openGoogle
-from general.morning import getJWT
+from general.morning_key import getJWT
 
 # Getting all expenses from a certain date
 
