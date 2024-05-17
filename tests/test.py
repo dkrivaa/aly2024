@@ -1,4 +1,4 @@
-import general_functions
+from general import general_functions
 
 # Opening the workbook
 book = general_functions.openGoogle()

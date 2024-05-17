@@ -2,15 +2,15 @@ import requests
 import json
 import os
 
-from .. import general_functions
-from morning.morning import getJWT
+from general import general_functions
+from general import morning
 
 # Getting all expenses from a certain date
 
 # opening Google workbook
 book = general_functions.openGoogle()
 # Getting JWT token for morning
-JWT = getJWT()
+JWT = morning.getJWT()
 date = os.environ.get('date')
 # Getting all expenses from given date
 url = 'https://api.greeninvoice.co.il/api/v1/expenses/search'
