@@ -33,6 +33,6 @@ jobs:
       
       - name: test Google Sheets
         run: |
-          python test.py  
+          python tests/test.py  
         
         
