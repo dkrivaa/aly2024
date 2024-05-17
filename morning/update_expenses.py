@@ -34,7 +34,8 @@ expense = response_json['items'][0]
 keys_list = list(expense.keys())
 values_list = list(expense.values())
 # book.worksheet('test').update([keys_list, values_list], major_dimension='COLUMNS')
-print(response.text)
-print(expense)
+print('response.text', response.text)
+print('expense', expense)
+print(keys_list)
 
 
