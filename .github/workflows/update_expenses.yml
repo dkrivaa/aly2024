@@ -41,6 +41,6 @@ jobs:
         run: |
           pip install -r requirements.txt 
 
-      - name: test Google Sheets
+      - name: update Google Sheets
         run: |
           python morning/update_expenses.py  
