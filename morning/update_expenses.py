@@ -26,6 +26,9 @@ response = requests.post(url, json=data, headers=headers)
 
 response_json = json.loads(response.text)
 expense = response_json['items'][0]
+keys_list = list(expense.keys())
+values_list = list(expense.values())
+book.worksheet('test').update([keys_list, values_list], major_dimension='COLUMNS')
 print(response.text)
 print(expense)
 
