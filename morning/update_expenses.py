@@ -2,13 +2,13 @@ import requests
 import json
 import os
 
-from general_functions import openGoogle
+from .. import general_functions
 from morning.morning import getJWT
 
 # Getting all expenses from a certain date
 
 # opening Google workbook
-book = openGoogle()
+book = general_functions.openGoogle()
 # Getting JWT token for morning
 JWT = getJWT()
 date = os.environ.get('date')
