@@ -2,13 +2,6 @@ name: update expenses in google
 
 on:
   workflow_dispatch:
-    # date passed as parameter
-#    inputs:
-#        date: # date from which to get expenses
-#        description: 'date'
-#        required:
-
-
 
 env:
   # Google sheet secrets
