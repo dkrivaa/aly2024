@@ -57,7 +57,6 @@ for expense in expenses:
 existing_expenses = pd.DataFrame(book.worksheet('test').get_all_records())
 print(existing_expenses)
 # book.worksheet('test').append_row(keys_list)
-# book.worksheet('test').update([keys_list, values_list], major_dimension='COLUMNS')
 # Existing expenses
 # existing_expenses = book.worksheet('test').col_values(1)
 
