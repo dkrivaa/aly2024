@@ -55,8 +55,8 @@ for expense in expenses:
     data_list.append(values_list)
 
 existing_expenses = pd.DataFrame(book.worksheet('test').get_all_records())
-
-data_list = [x for x in data_list if x not in existing_expenses['id']]
+existing_list = existing_expenses['id'].to_list()
+data_list = [x for x in data_list if x not in existing_list]
 print(data_list)
 # book.worksheet('test').append_row(data_list)
 # Existing expenses
