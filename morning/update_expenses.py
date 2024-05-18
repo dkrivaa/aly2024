@@ -55,11 +55,12 @@ for expense in expenses:
                 break
         values_list.append(value)
     data_list.append(values_list)
-# Getting existing expenses from google sheet and making the id into list
+# Getting existing expenses from Google sheet and making the id into list
 existing_expenses = pd.DataFrame(book.worksheet('expenses').get_all_records())
-existing_list = existing_expenses['id'].to_list()
-# keeping morning expenses not included in existing google sheet expenses and appending
-data_list = [x for x in data_list if x[0] not in existing_list]
+if len(existing_expenses) > 0:
+    existing_list = existing_expenses['id'].to_list()
+    # keeping morning expenses not included in existing google sheet expenses and appending
+    data_list = [x for x in data_list if x[0] not in existing_list]
 book.worksheet('expenses').append_rows(data_list)
 
 
