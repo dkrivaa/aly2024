@@ -56,9 +56,8 @@ for expense in expenses:
     data_list.append(values_list)
 
 # book.worksheet('test').update([keys_list, values_list], major_dimension='COLUMNS')
-print(data_list[0])
-print(data_list[1])
-print(expenses[0])
+print(len(data_list[0]))
+print(len(data_list[1]))
 
 
 
