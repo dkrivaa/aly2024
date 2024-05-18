@@ -4,7 +4,6 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 import requests
 import json
-# import os
 
 from general.general_functions import openGoogle
 from general.morning_key import getJWT
