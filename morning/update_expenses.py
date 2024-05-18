@@ -40,7 +40,7 @@ keys_list = ['id', 'paymentType', 'currency', 'currencyRate', 'amountExcludeVat'
              'accountingClassification.vat', 'accountingClassification.mixed',
              'supplier.name', 'deductibleAmount', 'deductibleVat','businessAmount',
              'description']
-data_list.append(keys_list)
+# Getting the Morning data
 for expense in expenses:
     values_list = []
     for key in keys_list:
@@ -54,10 +54,9 @@ for expense in expenses:
                 break
         values_list.append(value)
     data_list.append(values_list)
-
+print(data_list)
 # book.worksheet('test').update([keys_list, values_list], major_dimension='COLUMNS')
-print(len(data_list[0]))
-print(len(data_list[1]))
+
 
 
 
