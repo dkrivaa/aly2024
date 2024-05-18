@@ -42,9 +42,19 @@ keys_list = ['id', 'paymentType', 'currency', 'currencyRate', 'amountExcludeVat'
              'description']
 data_list.append(keys_list)
 for expense in expenses:
-    # Extract values corresponding to the keys to keep
-    values_list = [expense[key] for key in keys_list if key in expense]
+    values_list = []
+    for key in keys_list:
+        keys = key.split('.')  # Split nested keys
+        value = expense
+        for k in keys:
+            if isinstance(value, dict) and k in value:
+                value = value[k]
+            else:
+                value = None  # Handle missing keys
+                break
+        values_list.append(value)
     data_list.append(values_list)
+
 # book.worksheet('test').update([keys_list, values_list], major_dimension='COLUMNS')
 print(data_list[0])
 print(data_list[1])
