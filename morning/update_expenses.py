@@ -4,6 +4,7 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 import requests
 import json
+import pandas as pd
 
 from general.general_functions import openGoogle
 from general.morning_key import getJWT
@@ -20,16 +21,14 @@ url = 'https://api.greeninvoice.co.il/api/v1/expenses/search'
 data = {
     "fromDate": "2016-01-01",
 }
-
 headers = {
     'Content-Type': 'application/json',
     'Authorization': f'Bearer {JWT}'
 }
-
 response = requests.post(url, json=data, headers=headers)
-
 response_json = json.loads(response.text)
-# Working with the results
+
+# Working with the results from morning
 total_number_of_expenses = response_json['total']
 expenses = response_json['items']
 data_list = []
@@ -54,9 +53,10 @@ for expense in expenses:
                 break
         values_list.append(value)
     data_list.append(values_list)
-print(data_list)
 
-book.worksheet('test').append_row(keys_list)
+existing_expenses = pd.DataFrame(book.worksheet('test').get_all_records())
+print(existing_expenses)
+# book.worksheet('test').append_row(keys_list)
 # book.worksheet('test').update([keys_list, values_list], major_dimension='COLUMNS')
 # Existing expenses
 # existing_expenses = book.worksheet('test').col_values(1)
