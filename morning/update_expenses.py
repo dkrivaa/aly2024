@@ -30,12 +30,18 @@ headers = {
 response = requests.post(url, json=data, headers=headers)
 
 response_json = json.loads(response.text)
-expense = response_json['items'][0]
-keys_list = list(expense.keys())
-values_list = list(expense.values())
+total_number_of_expenses = response_json['total']
+expenses = response_json['items']
+data_list = []
+keys_list = list(expenses[0].keys())
+data_list.append(keys_list)
+for expense in expenses:
+    values_list = list(expense.values())
+    data_list.append(values_list)
 # book.worksheet('test').update([keys_list, values_list], major_dimension='COLUMNS')
-print('response.text', response.text)
-print('expense', expense)
-print(keys_list)
+print(total_number_of_expenses)
+print(expenses[0])
+print(data_list)
+
 
 
