@@ -40,7 +40,6 @@ for expense in expenses:
 # book.worksheet('test').update([keys_list, values_list], major_dimension='COLUMNS')
 print(total_number_of_expenses)
 print(expenses[0])
-print(data_list)
 
 
 
