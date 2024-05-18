@@ -29,16 +29,25 @@ headers = {
 response = requests.post(url, json=data, headers=headers)
 
 response_json = json.loads(response.text)
+# Working with the results
 total_number_of_expenses = response_json['total']
 expenses = response_json['items']
 data_list = []
-keys_list = list(expenses[0].keys())
+keys_list = ['id', 'paymentType', 'currency', 'currencyRate', 'amountExcludeVat', 'vat',
+             'amountLocal', 'amountExcludeLocal', 'paymentAmountLocal', 'amount', 'date',
+             'reportingDate', 'creationDate', 'lastUpdateDate',
+             'accountingClassification.title', 'accountingClassification.income',
+             'accountingClassification.vat', 'accountingClassification.mixed',
+             'supplier.name', 'deductibleAmount', 'deductibleVat','businessAmount',
+             'description']
 data_list.append(keys_list)
 for expense in expenses:
-    values_list = list(expense.values())
+    # Extract values corresponding to the keys to keep
+    values_list = [expense[key] for key in keys_list if key in expense]
     data_list.append(values_list)
 # book.worksheet('test').update([keys_list, values_list], major_dimension='COLUMNS')
-print(total_number_of_expenses)
+print(data_list[0])
+print(data_list[1])
 print(expenses[0])
 
 
