@@ -56,7 +56,7 @@ for expense in expenses:
     data_list.append(values_list)
 print(data_list)
 
-book.worksheet('test').append_rows(data_list)
+book.worksheet('test').append_row(keys_list)
 # book.worksheet('test').update([keys_list, values_list], major_dimension='COLUMNS')
 # Existing expenses
 # existing_expenses = book.worksheet('test').col_values(1)
